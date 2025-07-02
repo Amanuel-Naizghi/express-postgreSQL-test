@@ -9,7 +9,14 @@ async function insertUsername(username){
     await pool.query("INSERT INTO usernames (username) VALUES ($1)", [username]);
 }
 
+async function checkSearchItem(item){
+    const query = "SELECT * FROM usernames WHERE username = $1";
+    const result = await pool.query(query, [item]);
+    return result.rows;
+}
+
 module.exports = {
     getAllUsernames,
-    insertUsername
+    insertUsername,
+    checkSearchItem
 }

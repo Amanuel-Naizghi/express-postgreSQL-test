@@ -21,8 +21,18 @@ async function createUsernamePost(req,res){
     res.redirect("/");
 }
 
+async function getSearchItem(req,res){
+    const {searchItem} = req.query;
+    const result = await db.checkSearchItem(searchItem);
+    res.render('search',{
+        title:"Search result",
+        result:result
+    });
+}
+
 module.exports = {
     getUsernames,
     createUsernameGet,
-    createUsernamePost
+    createUsernamePost,
+    getSearchItem,
 }
