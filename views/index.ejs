@@ -12,6 +12,9 @@
     <% if(locals.users) {%>
         <p><%= users %></p>
     <% } %>
+    <form action="/delete" method="get">
+        <button type="submit">Delete All users</button>
+    </form>
     <a href="/new">Create user</a>
 </body>
 </html>

@@ -30,9 +30,15 @@ async function getSearchItem(req,res){
     });
 }
 
+async function deleteAllUsers(req,res){
+    await db.removeAllUsers();
+    res.redirect("/");
+}
+
 module.exports = {
     getUsernames,
     createUsernameGet,
     createUsernamePost,
     getSearchItem,
+    deleteAllUsers,
 }

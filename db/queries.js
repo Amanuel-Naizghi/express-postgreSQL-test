@@ -15,8 +15,13 @@ async function checkSearchItem(item){
     return result.rows;
 }
 
+async function removeAllUsers(){
+    await pool.query("DELETE FROM usernames");
+}
+
 module.exports = {
     getAllUsernames,
     insertUsername,
-    checkSearchItem
+    checkSearchItem,
+    removeAllUsers,
 }
